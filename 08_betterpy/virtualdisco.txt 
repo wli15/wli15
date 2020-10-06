@@ -1,0 +1,9 @@
+Team Glasses: Benjamin, William, Yin Hei
+SoftDev
+K08 -- Cross Pollination and Virtual Insanity
+2020-10-06
+
+https://www.python.org/dev/peps/pep-0405/#creating-virtual-environments
+https://www.geeksforgeeks.org/python-virtual-environment/
+
+$ python3 -m venv ~/myherozero creates a virtual environment in the myherozero directory. A virtual environment pauses a python code at a certain time so that the python version and other programs are set. This is useful so there is no mix-up in different versions because new virtual environments are created with every additional update? Inside the directory where the virtual enviornments are, there are two additional files that capable of creating new virtual environments as well as a library containing information on the different versions of programs used?
