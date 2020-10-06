@@ -1,0 +1,20 @@
+William Li
+SoftDev
+K08 -- Cross Pollination and Virtual Insanity
+2020-10-06
+
+Would dean's code work if the csv file ended with.txt?
+
+Where in karl's code does he chose randomly using the percentages?
+
+In almost every code I see people setting the dictionary value to the percentage but never the occupation, why?
+
+This reoccuring word weights? what does it do/significance?
+
+I see that the 2 main ideas used were either the use of "weight" or the <= operator, I don't think I have seen both in the same file
+
+What does print(f" ... ") do?
+
+Why do some people use from ____ import ____, why not just import the whole module?
+
+Remember that random.choice is a thing and not stick to just random.randint for everything
