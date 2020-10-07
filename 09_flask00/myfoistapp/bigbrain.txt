@@ -1,0 +1,18 @@
+Team Glasses: Benjamin, Yin Hei, William
+SoftDev
+K09-- Simple Path to Greatness
+2020-10-07
+
+Q0: It looks like java object creation
+
+Q1: It looks like directory navigation with the "/" potentially pointing the app to the desired directory
+
+Q2: It will print to the terminal and print _name_
+
+Q3: No, because hello world isn't run in this code or the argument of another function
+
+Q4: Similar to python and java because of the dot operator
+
+NEW KNOWLEDGE:
+It did not print anything, despite app being "loaded" 
+Flask is some type of server 
