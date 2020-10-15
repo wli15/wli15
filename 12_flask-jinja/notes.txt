@@ -1,0 +1,9 @@
+Q0: If the the render_template is removed and app.py is ran, there would probably be an error because there would be no return since the render would not be imported
+Q1: http://127.0.0.1:5000/templates/model_tmplt.html
+Q2: the foo and collection gets their arguments passed into the model_tmplt.html to be used
+
+right answer for Q1 is http://127.0.0.1:5000/my_foist_template
+For Q0 the local host site produced the que paso so it worked but the http://127.0.0.1:5000/my_foist_template did not work and gave name error
+Unless it is a static folder you must use app.route to specify how to get to the html/txt file.
+
+Question- how did the local host know to look at the templates directory and into model_tmplt.html unlike the static url where it was specified which folder to look into. Possibly be because the render_template has a method to search through whatever current directory you are in to look for files. 
