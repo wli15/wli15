@@ -1,0 +1,5 @@
+the occupation did not change because it was not specified on the bottom that debugger mode was on
+the function to produce a new occupation must be within the @app.route("/occupyflaskst") so when the page gets refreshed it runs again
+remember to add {{ variable }} when in a .html file to specify that its an argument waiting for input 
+from render_template(variable = imput)
+the @app.route("/") signifies different endings to the local host url and when you use a specific one, the code under that route gets ran, nothing else.

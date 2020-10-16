@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+  Team Goofy Gorillias - *William LI, Ryan Ma
+  SoftDev
+  Oct 2020
+ -->
+
+<html>
+
+  <head>
+    <title> {{ title }} </title>
+  </head>
+
+  <body>
+    <center><b> {{ heading1 }} </b></center>
+    <br>
+    <i> {{ heading2 }} </i>
+    <br>
+    <br>
+    {{ chosen_occupation }}
+    <br>
+    <br>
+    <table style = "width:75%">
+      <tr>
+        <th>Occupation</th>
+        <th>Percentage</th>
+      </tr>
+      {% for key in dictionary %}
+      <tr>
+        <td>
+          <center>
+          {{ dictionary[key] }}
+          </center>
+        </td>
+        <td>
+          <center>
+          {{ key }}
+          </center>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+
+</html>
