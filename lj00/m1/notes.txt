@@ -1,0 +1,21 @@
+Database is a structured way to store data. MongolDB is "NoSQL" which means it does not store using related tables of data (no rows and columns)
+MongolDB is a document database
+Documents organizes data by field-value pairs. Fields are unique identifiers for specific datapoints. Much like a dictionary? 
+Collections are multiple documents
+Database are multiple collections
+{
+	<field> : <value>,
+	"color" : "brown"
+	"age" : 20
+}
+
+Altas Cloud data base uses mongoldb at its core. Atlas users deploy clusters(groups of servers to store data)?
+The servers within a cluster are organized as replica sets (a few connected mongodb instances that store the same data)
+Instance: a single machine locally or in the cloud running a certain software
+multiple instances in a server. Multiple server in a cluster
+One server contains multiple copies of the same data so when one machine in the replica is broken, the others in the server will maintain that data.
+0.0.0.0/0 as an ip means it can be accessed anywhere
+username: m001-student
+password: m001-mongodb-basics
+Clicking collections in the cluster shows the database and collections in the cluster.
+
