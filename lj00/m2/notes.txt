@@ -1,0 +1,65 @@
+HOW DATA IS STORED:
+When updating the mongol shell, you use json (javascript standard object notation)
+json format:
+start and end documents with {}
+seperate key and value with colons :
+seperate key:value pair with commas ,
+"keys" must be surrounded by quotation marks " "
+"keys" are also called "fields"
+{
+	"_id" : "9237596-sdxv",
+	"date" : "Jan 10th 2020",
+	"certificate number" : 32458,
+	"address" : {
+		"city" : "NYC",
+		"zip" : 21456,
+		"Street" : "washington strret"
+	} *this is a SUB DOCUMENT
+}
+
+Json is Text-based which is slow, consumes a lot of space, and limited ways in storing data
+BSON = binary JSON -> bridges binary representation and JSON format
+faster, flexible and low space consumption
+MongolDB stores using BSON internally and over the network but still basically like JSON?
+anything stored in Json can be retrieved in JSON
+SO stored in BSON, viewed in JSON
+HOW TO IMPORT AND EXPORT DATA:
+When backing up data or exporting to a different system, BSON is faster
+If you plan on viewing the data locally after exporting it, JSON is a better choice
+4 COMMANDS: 
+mongoimport --uri "<Atlas Cluster URI>" 
+			--drop=<filename>.json
+imports data in JSON
+mongoexport --uri "<AtlasCluster URI>"
+			--collection=<collection name>
+			--out=<filename>.json
+exports data in JSON
+
+mongorestore --uri "<Atlas Cluster URI>"
+			 --drop dump
+imports data in BSON dump
+
+mongodump --uri "<Atlas Cluster URI>"
+exports data in BSON
+
+
+URI = Uniform Resource Identifier
+mongoDB uses a srv string to connect to the cluster. More secure connection of your appication and the MongolDB instance.
+mongodb+srv://user:password@clusterURI.mongodb.net/database
+
+
+
+
+CODE USED in import and export
+mongodump --uri "mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies"
+
+mongoexport --uri="mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies" --collection=sales --out=sales.json
+
+mongorestore --uri "mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies"  --drop dump
+
+mongoimport --uri="mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies" --drop sales.json
+
+DATA EXPLORER:
+can use in the Atlas ui by clicking collections
+can open specific databases and the preset findtab will show you general overview.
+In the filter search bar, you can follow the format to search specific documents with those same "key" : "value" pairs
