@@ -1,0 +1,53 @@
+Chapter 4 Notes
+Query Operators - Comparison
+MQL operators
+Update operators
+I.e. $inc, $set, #unset
+Enables us to modify data in the database
+Query Operators
+Provide additional ways to locate data within the database
+$ sign
+Preceds MQL operators
+Precedes Aggregation pipeline stages
+Allows Access to Field Values
+Comparison Operators
+Allow us to find data within a certain range
+$eq → EQual to
+Used as default when an operator is not specified
+$neq → Not EQual to
+$gt →  Greater Than
+$lt → Less Than
+$gte → Greater Than or Equal to
+$lte → Less Than or Equal to
+All use the same syntax of {<field>: {<operator>: <value>}}
+Query Operators - Logic
+Allows us to be more granular in our search for data
+{<operator>: [{statement1},{statemnet2},...]}
+$and → Match all the specified query clauses
+Used as the default operator when an operator is not specified
+Need to use it when including the same operator more than once in a query
+$or → At least one of the query clauses is matched
+$nor → Fail to match both given clauses
+{$not:{statement}}
+$not → Negates the query requirement
+Expressive Query operator 
+Syntax: {$expr: {<expression>}}
+Allows the use of aggregation expressions within the query language
+Allows us to use the variables and conditional statements
+$ also addresses the field value
+Array Operators
+$push → Allows us to add an element to an array and turns a field into an array field if it was previously a different type
+Order matters in an array
+Syntax: {<array field>:{“$size”:<number>}}
+Returns a cursor with all documents where the specified array field is exactly the given length
+Syntax: {<array field>:{“$all”:<number>}}
+Returns a cursor with all documents where the specified array field contains all the given elements regardless of their order in the array
+Projections
+Syntax: db.<collection>.find({<query>}, {<projection>})
+Inside <projection>, you put <field1>:0, <field2>: 0 etc where
+1 - include the field
+0 - exclude the field
+Do not combine 1s and 0s in a projection
+Syntax: {<field>:{“$elemMatch”: {<field>: <value> }}}
+Matches documents that contain an array field with at least one element that matches the specified query criteria, OR
+Projects only the array elements with at least one element that matches the specified criteria

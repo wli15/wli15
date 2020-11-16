@@ -1,0 +1,43 @@
+Chapter 3 Notes
+Adding documents into collections:
+In UI, enter the intended collection inside a dataset. Click “Insert Document” button top right of the collection. 
+You can choose how to enter the information(JSON notation or entering single field:value pairs at a time)
+Either way, the “_id” will be the same.
+*Every document has a unique _id value
+ObjectId() - the default value the _id field uses to ensure unique values for every document.
+It is good practice to have a new documents field:value to match that of the others in the collection. 
+If the value in the field:value pair is another document like it is for “address” make the datatype for “address” “object”
+Insert() and errors
+Duplicate key error: (database pathing): _id_ dup key: (documents id value)
+This means that multiple documents have identical id values. To solve this issue, after mongoimport --uri= “uri” --drop (collection name). This removes the collection so when you add it again, no duplicates will occur.
+You can add documents using insert()
+use (database)		//enters database of choice
+db.(collection).findOne()   //gets a random document from the collection of choice
+db.(collection).insert({identical document from findOne()}) //return a duplicate key error. But if you .insert() but remove the _id field from the document, no error because it will automatically assign a random _id.
+Mongodb allows identical documents to be used, as long as there is no dupe _id. This allows flexibility in what you want from a collection.
+Insert() Order
+db.inspections.insert([ { "test": 1 }, { "test": 2 }, { "test": 3 } ]) //inserting and array of 3 documents
+If you do the the same command^ again, there will be no duplicate key error because none of the 6 inserted documents have a specified _id so they were all assigned a random one.
+Should a situation occur that an array is inserted and any one of the documents have the same document, only the documents before the duplicate key error happens are inserted. This is because mongo’s default behavior is to insert documents based on the order of the array and when a error occurs, all operations halt.
+db.inspections.insert([{ "_id": 1, "test": 1 },{ "_id": 1, "test": 2 },{ "_id": 3, "test": 3 }],{ "ordered": false })
+The new {“ordered”:false} inside the .insert() will add all documents without an order. This allows documents without an error message that follow dupe id docs to be inserted.
+db.inspection.insert([{ "_id": 1, "test": 1 },{ "_id": 3, "test": 3 }])  //inserts documents with no error because wrong the collection name is inspections without the “s”. This makes a whole new collection. This works with use (collection) as well, but if you use no other commands, there should be no extra collection created since there is no data associated with it.
+.insert() is capable of inserting single documents as well as arrays. It has an ordered nature but can be turned off with {“ordered”:false}. insert() is also capable of collection creation.
+Updating Documents
+Mongo is capable of storing arrays that hold objects into documents
+Inside the UI, after finding a specific document, click the edit button top right to change any info.
+Using the Mongo query language (MQL):
+updateOne()  //much like findOne() that finds the firsts document that fit the criteria, this command will update the first document it finds fitting a criteria
+updateMany() //much like find() that find all documents that fit the criteria, this command updates all that fit the criteria.
+db.zips.updateMany({ "city": "HUDSON" }, { "$inc": { "pop": 10 } })
+{“city”: “HUDSON”} is what criteria mongo is looking for to update
+ { "$inc": { "pop": 10 } } is an MQL update operator that increments the field specified(“pop”) by the number that follows(10)
+db.zips.updateOne({ "zip": "12534" }, { "$set": { "pop": 17630 } })
+Much like how db.<collection name>.insert() with an unknown collection name creates a whole new collection, “$set” will add a new field into the document. It is also capable of just replacing field values to a new specified value.
+{$push: {<field1>: <value1>, …}} used to add elements to an array field that is capable in the ui. If the <field> does not exist, push will add an array field to the document with the specified value.
+Deleting 
+In ui there is a garbage icon next to items if you want to delete them.
+deleteOne() advisable to only use when you specify using the (“_id”: <id>) so you know that it the one and only you truly want to delete
+deleteMany()  //inside the parenthesis would be the specific field:value pair that documents  you would like to remove would have
+db.<collection name>.drop() to drop entire collections
+Removing all the collections in a database will also delete the database itself

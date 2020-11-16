@@ -63,3 +63,20 @@ DATA EXPLORER:
 can use in the Atlas ui by clicking collections
 can open specific databases and the preset findtab will show you general overview.
 In the filter search bar, you can follow the format to search specific documents with those same "key" : "value" pairs
+
+
+
+
+Can connect to the cluster from the shell using commands instead of the UI
+admin is the default database and can keep track of users in the database
+show dbs show the list of databases in the cluste
+use (database name)
+show collections list all the collections that were shown in the UI
+db.zips.find( {"state": "NY"})  <- notice how it doesnt ask for the database because prior we used the "use (databasename)" command
+the db.zips.find would list all documents that have the state of NY restriction. 
+Use it to "iterate through a cursor" it will show the next set of documents not shown before because of space
+cursor-a pointer to a result set of a query
+pointer-a direct address of the memory location
+.find() returns a cursor with documents that match the find query
+db.<collection name>.find(<query>).count() returns the num of documents that match the given query
+db.<collection name>.find(<query>).pretty() returns documents that match the given query formatted for ease of reading
