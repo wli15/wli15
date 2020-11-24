@@ -1,0 +1,70 @@
+Chapter 5
+Aggregation Framework  (another way to query data in mongodb)
+Ex: db.listingsAndReviews.aggregate([
+                                  { "$match": { "amenities": "Wifi" } },
+                                  { "$project": { "price": 1,
+                                                  "address": 1,
+                                                  "_id": 0 }}]).pretty()
+
+Aggregate allows us to group, calculate, and modify data instead of just filtering(finding and projecting)
+db.collection.aggregate([array])
+Inside the array, like a pipeline, the order matters because that is the same order operations take place
+[
+	{“$match”:{“field”: “value”}}, //finds docs that match and feed it to the “pipeline”
+	{“$project”: {“field”: 1 or 0, “field”: 1 or 0, ...}}] //just like projections, filters out all fields except for those specified in the array with a value of 1. A finer filter than $match.
+Aggregation Framework is special because it of $group allowing you to group and reshape data
+$group takes the incoming stream of data and siphons it into multiple distinct reservoirs. 
+db.collection.aggregate([
+{“$match”: {field:value}},
+ {“$project”: {projection}},
+ {“$group”: {_id: <expression>, <field1>:<expression1>,
+“count”: “$sum”: value}}])
+Ex: db.listingsAndReviews.aggregate([ { "$project": { "address": 1, "_id": 0 }},
+                                  { "$group": { "_id": "$address.country" }}])
+In the $group stage, it takes all the data from the $project (only the addresses of the listingsAndReviews collection) and applies the expression $address.country to identify the group the data belongs to
+
+Ex. db.listingsAndReviews.aggregate([
+                                  { "$project": { "address": 1, "_id": 0 }},
+                                  { "$group": { "_id": "$address.country",
+                                                "count": { "$sum": 1 } } }
+                                ])
+Here a new field is being displayed called count that has a value of $sum(adds the proceeding  value to “count” for the entirety of a group.)
+
+aggregation>MQL
+Aggregation pipeline changes only changes within the pipeline and what comes out. Original data does NOT CHANGE.
+
+sort() and limit()
+Are cursor methods just like find() and count(). No manipulation of the original data. Applied to the data filtered out by the criteria inside the cursor. 
+db.zips.find().sort({ "pop": 1 }).limit(1)
+Finds 1 document (because limit is one) that shows up with an increasing “pop”
+To find zips with highest pop -> db.zips.find().sort({ "pop": -1 }).limit(1)
+The -1 signifies that pops with the highest values are first in the cursor and the proceeding documents are of lower pop.
+When using both sort() and limit(), the sorting is done first regardless of the order you typed it. 
+
+Index-A special data structure that stores a small portion of the collection’s data set in an easy to transverse form
+db.trips.createIndex({ "birth year": 1 })  creates an index of the birth year field in increasing order
+Next time db.trips.find({“birth year”: #}) is used, mongo looks at the index created. No longer looking at every field of every document to match to “birth year” and matching the values to that #
+db.trips.find({ "start station id": 476 }).sort( { "birth year": 1 } ) would still search through every document and search for a field of “start station id” and value of 476. Can use compound index for this.
+db.trips.createIndex({ "start station id": 476, "birth year": 1 })  this would first index all start stations of id 476. Then it would idex the birth years of the grouped start stations.
+
+Data modelling - a way to  organize fields in a document to support your application performance and querying capabilities
+Rule: data is stored in the way that it is used.
+If data is used together it should be stored together 
+
+Upsert-Update or Insert?
+Every used to locate a doc in a collection in MQL is also capable of modifying that document
+db.collection.updateOne( {query to locate} , {update} )
+Upsert is a hybrid of update and insert 
+db.collection.updateOne( {query to locate} , {update} , {“upsert” : true} )
+If upsert is set to true:
+If there is a match with the query then an update occurs
+If there is not a match with the query, an new document is inserted
+Use an update with upsert true if there is little docs that are added while other fields of a larger doc remain the same:
+Ex: db.iot.updateOne({ "sensor": r.sensor, "date": r.date,
+                   "valcount": { "$lt": 48 } },
+                         { "$push": { "readings": { "v": r.value, "t": r.time } },
+                        "$inc": { "valcount": 1, "total": r.value } },
+                 { "upsert": true })
+Do $push to add a new “reading” and $inc to make sure the valcount is less than 48. Once it reaches over 48, then it no longer updates and inserts instead. 
+“upsert”:true when you want to do conditional updates
+“upsert”: false when updating an existing doc or inserting a brand new doc

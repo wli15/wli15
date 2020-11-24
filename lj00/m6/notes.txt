@@ -1,0 +1,15 @@
+Chapter 6
+On the ui there are many thing you can do:
+Create visual representations of the data
+Look at a representation of the pipeline through the aggregation tab
+Export pipeline code to different programming languages
+Compass is another tool:
+Connect using the link in the database connections button
+NEVER touch the admin, config, and local databases in the compass
+Inside compass there is documents and aggregation tab just like in the data explorer ui
+There is also a schema tab that allows you to have an overview of the shape of the data. (when created, how much of a document/data type, types and ranges of values)
+Index tab allows for index creation and overview of existing indexes
+Explain tab shows how certain data was retrieved. (shows how many docs it looked through and other data information)
+If looking for docs filtering by fields there are indexes for, explain tab will show that it only searched through that index = faster
+The explain tab shows when your filtering has been optimized
+Validation tab allows you to establish rules for the data. You can deny certain value types for specific fields. 
