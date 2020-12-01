@@ -1,3 +1,8 @@
+Team Somewhat Swag(William Li, Yi Ling Wu)
+SoftDev
+LJ00 -- Le Voyage de Learnination avec Mongo, Première Phase
+2020-10-29
+
 HOW DATA IS STORED:
 When updating the mongol shell, you use json (javascript standard object notation)
 json format:

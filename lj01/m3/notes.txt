@@ -1,3 +1,8 @@
+Team Somewhat Swag(William Li, Yi Ling Wu)
+SoftDev
+LJ01 --Le Voyage de Learnination avec Mongo, Deuxième Phase
+2020-11-12
+
 Chapter 3 Notes
 Adding documents into collections:
 In UI, enter the intended collection inside a dataset. Click “Insert Document” button top right of the collection. 

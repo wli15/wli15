@@ -1,3 +1,7 @@
+Team Goofy Gorilla(William Li, Ryan Ma)
+SoftDev
+LJ02: Le Voyage de Learnination avec Mongo, Troisième Phase
+2020-11-25
 Chapter 5
 Aggregation Framework  (another way to query data in mongodb)
 Ex: db.listingsAndReviews.aggregate([

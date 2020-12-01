@@ -1,3 +1,8 @@
+Team Goofy Gorilla(William Li, Ryan Ma)
+SoftDev
+LJ02: Le Voyage de Learnination avec Mongo, Troisième Phase
+2020-11-25
+
 Chapter 6
 On the ui there are many thing you can do:
 Create visual representations of the data

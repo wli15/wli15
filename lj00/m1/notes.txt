@@ -1,3 +1,8 @@
+Team Somewhat Swag(William Li, Yi Ling Wu)
+SoftDev
+LJ00 -- Le Voyage de Learnination avec Mongo, Première Phase
+2020-10-29
+
 Database is a structured way to store data. MongolDB is "NoSQL" which means it does not store using related tables of data (no rows and columns)
 MongolDB is a document database
 Documents organizes data by field-value pairs. Fields are unique identifiers for specific datapoints. Much like a dictionary? 
@@ -19,3 +24,6 @@ username: m001-student
 password: m001-mongodb-basics
 Clicking collections in the cluster shows the database and collections in the cluster.
 
+To connect to Cluster:
+mongo "mongodb+srv://sandbox.4elsg.mongodb.net/Sandbox" --username m001-student
+then enter password

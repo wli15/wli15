@@ -1,3 +1,8 @@
+Team Somewhat Swag(William Li, Yi Ling Wu)
+SoftDev
+LJ01 --Le Voyage de Learnination avec Mongo, Deuxième Phase
+2020-11-12
+
 Chapter 4 Notes
 Query Operators - Comparison
 MQL operators
