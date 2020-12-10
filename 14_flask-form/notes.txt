@@ -1,0 +1,22 @@
+Team MadCauseBad - Ryan Ma, Jessica Yeung, May Hathaway, William Li
+SoftDev
+K14 -- Form and Function - using post/get forms in flask
+2020-12-10
+
+The inital @route ("/") uses the login template where the <form> </form> section is. 
+All info in that form section is later created into a dictionary.
+To access form data from login.html, rec=request.form is used, setting rec as thethe dictionary created
+
+action="/auth" re routes you to the @route("/auth"") which results in the response.html template being used.
+usern=req['username'] retrieves the info in the dictionary created to spit back into the response.html template in the {{usern}} portion
+
+
+
+
+The post method is much more secure than the get method.
+The get method shows the dictionary values in the url.
+
+If the get method is used it's possible to
+    retrieve an exact response by inputting a specific link
+    reload the page without any errors
+The post method requires a resubmission of the username each time to access the response.

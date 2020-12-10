@@ -1,0 +1,40 @@
+<!--
+#Team MadCauseBad - Ryan Ma, Jessica Yeung, May Hathaway, William Li
+#SoftDev
+#K14 -- Form and Function - using post/get forms in flask
+#2020-12-10
+-->
+
+<!DOCTYPE html>
+<!--
+     simple demo of HTML forms via Flask
+-->
+
+<html>
+
+  <head>
+    <title> LOGIN PAGE </title>
+  </head>
+
+  <body>
+    <p>
+      Team MadCauseBad - Ryan Ma, Jessica Yeung, May Hathaway, William Li
+    </p>
+
+    <h1>
+      Welcome, Travelers of the Intertoobz!
+    </h1>
+
+
+    <h3>
+      Enter your username below to proceed.
+    </h3>
+    <form action="/auth" method="post">
+      <input type="text" name="username">
+      <input type="submit" name="sub1">
+
+    </form>
+    <br>
+  </body>
+
+</html>
