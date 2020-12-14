@@ -1,0 +1,48 @@
+<!--
+#Team MadCauseBad - Ryan Ma, Jessica Yeung, May Hathaway, William Li
+#SoftDev
+#K15 -- Sessions Greetings
+#2020-12-15
+-->
+
+<!DOCTYPE html>
+<!--
+     simple demo of HTML forms via Flask
+-->
+
+<html>
+
+  <head>
+    <title> LOGIN PAGE </title>
+  </head>
+
+  <body>
+    <p>
+      Team MadCauseBad - Ryan Ma, Jessica Yeung, May Hathaway, William Li
+    </p>
+
+    <h1>
+      Welcome, Travelers of the Intertoobz!
+    </h1>
+
+    <h2>
+      Enter your username and password below to proceed.
+    </h2>
+    <br>
+
+    <form action = "/" method = "post">
+      <input type = "text" name = "username" placeholder = "Username" required> <!-- required explained in notes.txt -->
+      <br>
+      <input type = "password" name = "passw" placeholder = "Password" required>
+      <br>
+      <br>
+      <input type = "submit" name= "sub1" value = "Log In">
+    </form>
+    <br>
+    <b>
+      {{ error }}
+    </b>
+
+  </body>
+
+</html>

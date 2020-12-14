@@ -1,0 +1,14 @@
+Team MadCauseBad - Ryan Ma, Jessica Yeung, May Hathaway, William Li
+SoftDev
+K15: Sessions Greetings
+2020-12-14
+
+Instead of generating a new page for every error message, we created an error variable
+at the bottom of the login.html such that error would be assigned a value corresponding
+to its respective error.
+
+We bypassed checking if the login/password fields were empty by adding the required field
+to our form inputs.
+
+There is an issue where the web address would be /welcome instead of / while displaying the
+login page after logging out, which we don't understand how to fix.
