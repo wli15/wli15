@@ -1,0 +1,14 @@
+# Team MadCauseBad - Ryan Ma, Jessica Yeung, May Hathaway, William Li
+# SoftDev
+#K16 -- No Trouble - using SQLite 
+#2020-12-16
+
+Team MadCauseBad - Ryan Ma, Jessica Yeung, May Hathaway, William Li
+SoftDev
+K16 -- No Trouble
+2020-12-16
+
+Had a lot of trouble figuring out how to carry over values from python into our sqlite commands.
+Solved this by using tuples and inserting tuples into a string so that the command would execute.
+? marks denote parameters in sqlite.
+Have to delete the created db_file in order to run again, otherwise a unique constraint error would occur.
