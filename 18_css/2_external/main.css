@@ -19,10 +19,11 @@ ul{
   margin-left:30px;
   font-weight:bold;
 }
-#link{
+#link a{
   color:#d9d6c6;
   background-color:transparent;
   text-decoration:none;
+  color:#d9d6c6;
 }
 h1{
   background-color:#bebebe;
