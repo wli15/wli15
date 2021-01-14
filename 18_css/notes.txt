@@ -1,0 +1,10 @@
+  
+Team Wlliam Li (Jeffrey Huang, William Li)
+SoftDev
+K18 -- Filler and Finery
+2021-01-14
+
+When setting display as flex in css, all components within the tags will be flex items. Each item will appear as its own column.
+Margins shift the text while padding doesnt. 
+CSS follows inheritancde rules where outer tags act as parents and inside heading/body/links act as childs
+Issue with internal css when changing the color of the links, when inspecting chrome, color:#d9d6c6; is crossed out
