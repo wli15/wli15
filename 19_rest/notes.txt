@@ -1,0 +1,7 @@
+#Team EmptyCup - William Li, Pak Lau
+#Soft Dev
+#K19 -- A RESTful Journey Skyward - using API keys to display image from another site
+#2021-04-06
+
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed:
+When I tried to see my key again, I was given a different one initially.
