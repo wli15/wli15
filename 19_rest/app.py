@@ -4,7 +4,7 @@
 #2021-04-06
 
 from flask import Flask, render_template
-import urllib.request as urllib2
+import urllib
 import json
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ key.close()
 
 @app.route("/",  methods=["GET"])
 def root():
-	u = urllib2.urlopen(fullLink)
+	u = urllib.urlopen(fullLink)
 	response = u.read()
 	data = json.loads(response)
 	return render_template("main.html", pic = data['url'])
