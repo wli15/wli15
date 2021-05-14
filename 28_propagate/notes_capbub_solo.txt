@@ -1,0 +1,41 @@
+Team solo - William Li
+SoftDev -- K28: Bubble Bubble Toil Trouble - Javascript event sequence
+2021-05-14
+
+
+Folder 1:
+Predict: variable tds in the js holds all elements with tags "tds". For loop iterates through all elements of the tds var holds and add an onclick function that will alert back the element.
+
+Actual: 2 rows, 3 columns that alert back the element everytime it is clicked regardless of the amount  of times pressed.
+
+Folder 2:
+Predict: Same as folder 1 but has additional for loops relating to "tr" and "table" tags. I think since the td tag for loop is higher up, the alert will show the td elements instead of the table or the tr
+
+Actual: td tag elements did appear first onclick, but right after the tr and table tag information also got alerted.
+
+Folder 3:
+Predict: No idea what the true means but probably change the order of the alerts
+
+Actual(without stopProp): Table information came first, then td then tr.
+
+Predict(with stopProp): according to MDN link, the inner most event occurs but does not bubble up the chain. So only the td element will show
+
+Actual(with stopProp): only the table element was shown(when the boolean true was included). The td element was shown when the false was in the table onlcick function
+
+Folder 4:
+Predict: Since all have the true initially, and the true made it the "inner most function" I assume that all td, tr, and table elements will get alerted
+
+Actual: Table, tr, td in that order were alerted.
+
+Predict(with stopProp): since without stopProp, the table elemetent was alerted first I assume it is the handler. So only the table will show.
+
+Actual(with stopProp): Correct prediction!
+
+
+
+The booleans after the evenlisteners establishes what is the first handler to run. Odd situation when multiple has true. Instead of reacting standardly when they all don't have the booleans, it acts opposite. So table -> tr -> td. 
+
+stopProp makes it so that only one eventlistener is ever invoked at a time. 
+
+
+
